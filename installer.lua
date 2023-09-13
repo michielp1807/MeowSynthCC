@@ -10,20 +10,20 @@ local DOWNLOADS = {
     "draggable.lua",
     "biquad.lua",
     "synth.lua",
-    "ui.nfp",
-    "meowcat0.nfp",
-    "meowcat1.nfp",
-    "meowcat2.nfp",
-    "meowcat3.nfp",
-    "meowcat4.nfp",
-    "meowcat5.nfp",
-    "meowcat6.nfp",
-    "meowcat7.nfp",
+    "images/ui.nfp",
+    "images/meowcat0.nfp",
+    "images/meowcat1.nfp",
+    "images/meowcat2.nfp",
+    "images/meowcat3.nfp",
+    "images/meowcat4.nfp",
+    "images/meowcat5.nfp",
+    "images/meowcat6.nfp",
+    "images/meowcat7.nfp",
 }
- 
+
 local width, height = term.getSize()
 local totalDownloaded = 0
- 
+
 local function update(text)
     term.setBackgroundColor(colors.black)
     term.setTextColor(colors.white)
@@ -32,12 +32,12 @@ local function update(text)
     term.setCursorPos(math.floor(width / 2 - string.len(text) / 2 + 0.5), 9)
     write(text)
 end
- 
+
 local function bar(ratio)
     term.setBackgroundColor(colors.gray)
     term.setTextColor(colors.lime)
     term.setCursorPos(1, 11)
- 
+
     for i = 1, width do
         if (i / width < ratio) then
             write("]")
@@ -46,7 +46,7 @@ local function bar(ratio)
         end
     end
 end
- 
+
 local function download(path, attempt)
     local rawData = http.get(REPO_LINK .. path)
     update("Downloaded " .. path .. "!")
@@ -62,7 +62,7 @@ local function download(path, attempt)
     file.write(data)
     file.close()
 end
- 
+
 local function downloadAll(downloads, total)
     local nextFile = table.remove(downloads, 1)
     if nextFile then
@@ -76,44 +76,44 @@ local function downloadAll(downloads, total)
         end)
     end
 end
- 
-function install()
+
+local function install()
     term.setBackgroundColor(colors.black)
     term.setTextColor(colors.yellow)
     term.clear()
- 
+
     term.setCursorPos(math.floor(width / 2 - #NAME / 2 + 0.5), 2)
     write(NAME)
     update("Installing...")
     bar(0)
- 
+
     local total = #FOLDERS + #DOWNLOADS
- 
+
     for i = 1, #FOLDERS do
         local folder = FOLDERS[i]
         update("Creating " .. folder .. " folder...")
         fs.makeDir(folder)
         bar(i / total)
     end
- 
+
     totalDownloaded = #FOLDERS
     downloadAll(DOWNLOADS, total)
- 
+
     update("Installation finished!")
- 
+
     sleep(1)
- 
+
     term.setBackgroundColor(colors.black)
     term.setTextColor(colors.white)
     term.clear()
- 
+
     term.setCursorPos(1, 1)
     write("Finished installation!\nPress any key to close...")
- 
+
     os.pullEventRaw()
- 
+
     term.clear()
     term.setCursorPos(1, 1)
 end
- 
+
 install()

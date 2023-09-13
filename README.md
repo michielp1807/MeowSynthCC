@@ -1,7 +1,7 @@
 MeowSynth recreated in ComputerCraft!
 ---
 
-![Screen recording of MeowSynthCC](./meow.gif)
+![Screen recording of MeowSynthCC](./images/meow.gif)
 
 This was my first time creating a software synthesizer from scratch, and I thought it would be a fun challenge to try to recreate [MeowSynth](https://lostsoftwarearchives.neocities.org/Meow/) in ComputerCraft!
 

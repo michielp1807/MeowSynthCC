@@ -65,12 +65,12 @@ end
 
 -- Draw main UI background
 -- $ ./convert_nfp.py --skip-resize ui.png
-local ui = paintutils.loadImage("ui.nfp")
+local ui = paintutils.loadImage("images/ui.nfp")
 
 local cats = {}
 for i = 0, 7 do
     -- $ ./convert_nfp.py --resize-width 53 --resize-height 39 meowcat*.png
-    cats[i + 1] = paintutils.loadImage("meowcat" .. i .. ".nfp")
+    cats[i + 1] = paintutils.loadImage("images/meowcat" .. i .. ".nfp")
     -- Insert border on left side
     for y = 1, #cats[i + 1] do
         table.insert(cats[i + 1][y], 1, colors.blue)
@@ -189,7 +189,7 @@ for i = 1, 4 do
         local value = min(level / 19 + 0.0001, 1)
         if i == 3 then -- Sustain level
             value = value ^ 3
-        else -- Attack / Decay / Release
+        else           -- Attack / Decay / Release
             value = value * 2
         end
         ADSR[i] = value
@@ -200,7 +200,7 @@ for i = 1, 4 do
     local level = ADSR[i]
     if i == 3 then -- Sustain level
         level = level ^ (1 / 3)
-    else -- Attack / Decay / Release
+    else           -- Attack / Decay / Release
         level = level / 2
     end
     level = math.floor((level - 0.0001) * 19)

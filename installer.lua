@@ -1,4 +1,4 @@
-local NAME = "CC Samurai Salad Installer"
+local NAME = "MeowSynthCC Installer"
 local REPO_LINK = "https://raw.githubusercontent.com/MichielP1807/MeowSynthCC/main/"
 local FOLDERS = {
     "models",

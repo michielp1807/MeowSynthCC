@@ -137,7 +137,7 @@ drawText("Meow Envelope", 31, 2, colors.white, colors.lightBlue)
 local keyboardKeys = {
     keys.z, keys.s, keys.x, keys.d, keys.c,
     keys.v, keys.g, keys.b, keys.h, keys.n, keys.j, keys.m,
-    keys.comma, keys.l, keys.period, keys.semiColon, keys.slash,
+    keys.comma, keys.l, keys.period, keys.semiColon or keys.semicolon, keys.slash,
     keys.q, keys.two, keys.w, keys.three, keys.e, keys.four, keys.r,
     keys.t, keys.six, keys.y, keys.seven, keys.u,
     keys.i, keys.nine, keys.o, keys.zero, keys.p, keys.minus, keys.leftBracket,

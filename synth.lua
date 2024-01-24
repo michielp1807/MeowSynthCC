@@ -128,7 +128,7 @@ local function processAudio()
             end
         end
 
-        local new_cutoff_level = floor(log(cutoff, 2) / cutoff_max_log2 * 7) + 1
+        local new_cutoff_level = min(max(floor(log(cutoff, 2) / cutoff_max_log2 * 7) + 1, 1), 8)
         if cutoff_level ~= new_cutoff_level then
             cutoff_level = new_cutoff_level
             onNewCutoffLevel(cutoff_level)

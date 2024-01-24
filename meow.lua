@@ -101,7 +101,7 @@ end
 ---@type Key[]
 local pianoKeys = {}
 local keyChars = "zsxdcvgbhnjm,l.;/q2w3e4rt6y7ui9o0p-[]"
-local keyIsBlack = { false, true, false, true, false, false, true, false, true, false, true, false }
+local keyIsBlack = {false, true, false, true, false, false, true, false, true, false, true, false}
 for i = 1, 12 * 4 + 1 do
     ---@class Key
     pianoKeys[i] = {
@@ -177,7 +177,7 @@ end)
 -- Spaces to draw the slider with as text
 local SLIDER_SPACES = "                  "
 
-local ADSR = { 0.25, 0.75, 0.01, 0.25 }
+local ADSR = {0.25, 0.75, 0.01, 0.25}
 
 -- Create ADSR slider draggable
 for i = 1, 4 do
@@ -186,9 +186,9 @@ for i = 1, 4 do
         local level = max(0, min(x - 31, 19))
         drawText(SLIDER_SPACES, 32, sy, nil, colors.black)
         drawText(SLIDER_SPACES:sub(1, level), 32, sy, nil, colors.yellow)
-        local value = min(level / 19 + 0.0001, 1)
+        local value = min(level / 19 + 0.001, 1)
         if i == 3 then -- Sustain level
-            value = value ^ 3
+            value = value ^ 3 + 0.0001
         else           -- Attack / Decay / Release
             value = value * 2
         end
@@ -231,7 +231,6 @@ local function userInput()
             term.clear()
             term.setCursorPos(1, 1)
             resetPalette()
-            print("Good meow! See meow later!")
             return
         end
     end

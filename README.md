@@ -8,7 +8,7 @@ This was my first time creating a software synthesizer from scratch, and I thoug
 The sound of the low pass filter does not yet exactly sound like the original MeowSynth's filter. The original MeowSynth sounds like the "12db fast LP filter" in FL Studio, which is different from the standard "12db LP filter" in FL.
 
 ### How to install
-Download MeowSynthCC from the [PineStore](https://pinestore.cc/projects/audio/7/meowsynthcc)!
+Download MeowSynthCC from the [PineStore](https://pinestore.cc/projects/7/meowsynthcc)!
 
 Or alternatively install it using the following command:
 ```
